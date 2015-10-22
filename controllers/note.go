@@ -17,8 +17,18 @@ func (c *NoteController) New() {
 	c.TplNames = "note/new.tpl"
 }
 
+func (c *NoteController) Show() {
+	url := c.Ctx.Input.Param("0")
+	if noteEntry, err := models.GetNoteEntryByUrl(url); err != nil {
+		c.Abort("404")
+	} else {
+		c.Data["json"] = makeAjaxResponse(true, noteEntry.GetContent(), "succ")
+	}
+	c.ServeJson()
+}
+
 func makeAjaxResponse(flag bool, data string, msg string) map[string]interface{} {
-	return map[string]interface{}{"falg": flag, "data": data, "msg": msg}
+	return map[string]interface{}{"flag": flag, "data": data, "msg": msg}
 }
 
 func (c *NoteController) Submit() {
@@ -29,11 +39,10 @@ func (c *NoteController) Submit() {
 	}
 
 	noteContent := c.Input().Get("noteContent")
-	noteEntry := models.NewNoteEntry(uname, noteContent)
-	if noteEntry.Save() {
-		c.Data["json"] = makeAjaxResponse(true, noteEntry.GetUrl(), "succ")
-	} else {
+	if noteEntry, err := models.NewNoteEntry(uname, noteContent); err != nil {
 		c.Data["json"] = makeAjaxResponse(false, "", "something wrong with server")
+	} else {
+		c.Data["json"] = makeAjaxResponse(true, noteEntry.GetUrl(), "succ")
 	}
 
 	c.ServeJson()
