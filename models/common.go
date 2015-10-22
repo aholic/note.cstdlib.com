@@ -2,15 +2,12 @@ package models
 
 import (
 	"math/rand"
-	"strconv"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/config"
-	"github.com/syndtr/goleveldb/leveldb"
 )
 
 var Configs map[string]config.ConfigContainer
-var urlCount int64
 var base62Indices map[byte]int64
 var pow62s []int64
 
@@ -34,23 +31,6 @@ func init() {
 	} else {
 		beego.Critical("unable to open conf/db.conf")
 	}
-
-	appDataDbPath := Configs["conf/db.conf"].String("app::path")
-	if appDataDbPath == "" {
-		beego.Critical("unable to find app:path in conf/db.conf")
-	}
-
-	appDataDb, err := leveldb.OpenFile(appDataDbPath, nil)
-	if err != nil {
-		beego.Critical("unable to open " + appDataDbPath)
-	}
-
-	urlCountStr, err := appDataDb.Get([]byte("urlCount"), nil)
-	if err != nil {
-		urlCount = int64(1014)
-	} else {
-		urlCount, _ = strconv.ParseInt(string(urlCountStr), 10, 64)
-	}
 }
 
 func GenerateRandomStr62(length int) string {
@@ -64,6 +44,7 @@ func GenerateRandomStr62(length int) string {
 	for len(ret) < length {
 		ret = base62Candidates[0:1] + ret
 	}
+
 	return ret
 }
 
