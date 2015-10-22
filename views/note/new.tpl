@@ -44,7 +44,7 @@ how to use: [write down your note] -> [generate url] -> [share it]
                     alert(rst.msg);
                     return;
                 } 
-                $("#urlToShare").val(rst.data)
+                $("#urlToShare").val("http://note.cstdlib.com/note/show/" + rst.data)
             },"json");
         });
     });
