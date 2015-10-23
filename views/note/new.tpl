@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-<meta content='Easy way to share note' name='description'>
-<title>Share Your Note</title>
+<meta content='便笺快速分享' name='description'>
+<title>随享记</title>
 </head>
 
 <style type="text/css">
@@ -15,17 +15,16 @@
 </style>
 <body style='font-family:Helvetica'>
 <div class="align-center">
-<h1 style='margin:0px;'>Share Your Note</h1>
-<p>
-how to use: [write down your note] -> [generate url] -> [share it]
-</p>
+<div style="height:50px;"> </div>
+<h1 style='margin:0px;'>随享记</h1>
+<div style="height:90px;"> </div>
 <textarea id="noteContent" rows="35" style="background-color:#EEEEEE;width:100%;resize:none"></textarea>
-<!--
-<p>The server is written in golang, explore <a href="https://github.com/aholic/gojsonfmt/blob/master/format.go">more</a>.</p>
--->
-<input type="button" name="generateUrl" id="generateUrl" value="Generate Url"/>
+<p>
+使用步骤：输入便笺内容、生成url、将url发给你要分享的人
+</p>
+<input type="button" name="generateUrl" id="generateUrl" value="生成url"/>
 <input type="text" id="urlToShare" name="urlToShare" value="" style="width:300px" readonly>
-<div style="height:150px;"> </div>
+<div style="height:120px;"> </div>
 <a style='width:800px;' href="http://www.miitbeian.gov.cn/">
  京ICP备14040458号
 </a>

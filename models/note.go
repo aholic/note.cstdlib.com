@@ -99,6 +99,7 @@ func NewNoteEntry(author string, content string) (*NoteEntry, error) {
 	defer urlCountGuard.Unlock()
 
 	ne.url = Int64ToStr62(urlCount) + ne.salt
+	urlCount++
 
 	if ne.save() {
 		return ne, nil
@@ -149,4 +150,7 @@ func (n *NoteEntry) GetUrl() string {
 }
 func (n *NoteEntry) GetContent() string {
 	return n.content
+}
+func (n *NoteEntry) GetDate() string {
+	return n.date
 }

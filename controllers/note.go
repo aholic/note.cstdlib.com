@@ -22,9 +22,10 @@ func (c *NoteController) Show() {
 	if noteEntry, err := models.GetNoteEntryByUrl(url); err != nil {
 		c.Abort("404")
 	} else {
-		c.Data["json"] = makeAjaxResponse(true, noteEntry.GetContent(), "succ")
+		c.Data["noteContent"] = noteEntry.GetContent()
+		c.Data["noteDate"] = noteEntry.GetDate()
 	}
-	c.ServeJson()
+	c.TplNames = "note/show.tpl"
 }
 
 func makeAjaxResponse(flag bool, data string, msg string) map[string]interface{} {
