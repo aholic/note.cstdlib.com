@@ -20,7 +20,7 @@
 <div style="height:90px;"> </div>
 <textarea id="noteContent" rows="35" style="background-color:#EEEEEE;width:100%;resize:none" >{{.noteContent}}</textarea>
 <p>
-以上内容由其他用户创建于{{.noteDate}}。想创建自己的内容并分享？请点击<a href="/note/new">这里</a>
+以上内容由其他用户创建于{{.noteDate}}。想创建自己的内容并分享？请点击<a href="/">这里</a>
 </p>
 <div style="height:150px;"> </div>
 <a style='width:800px;' href="http://www.miitbeian.gov.cn/">

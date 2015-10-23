@@ -43,7 +43,7 @@
                     alert(rst.msg);
                     return;
                 } 
-                $("#urlToShare").val("http://note.cstdlib.com/note/show/" + rst.data)
+                $("#urlToShare").val("http://note.cstdlib.com/" + rst.data)
             },"json");
         });
     });
