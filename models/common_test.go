@@ -7,8 +7,8 @@ import (
 )
 
 func TestInt64ToStr62(t *testing.T) {
-	int64List := []int64{0, 1, 61, 62, 839299365868340223}
-	str62List := []string{"1", "R", "i", "R1", "iiiiiiiiii"}
+	int64List := []int64{0, 1, 61, 62, 839299365868340223, 1014}
+	str62List := []string{"1", "R", "i", "R1", "iiiiiiiiii", "Tf"}
 
 	for i := 0; i < len(int64List); i++ {
 		ans := models.Int64ToStr62(int64List[i])
@@ -19,8 +19,8 @@ func TestInt64ToStr62(t *testing.T) {
 }
 
 func TestStr62ToInt64(t *testing.T) {
-	str62List := []string{"1", "R", "i", "R1", "iiiiiiiiii"}
-	int64List := []int64{0, 1, 61, 62, 839299365868340223}
+	str62List := []string{"1", "R", "i", "R1", "iiiiiiiiii", "Tf"}
+	int64List := []int64{0, 1, 61, 62, 839299365868340223, 1014}
 
 	for i := 0; i < len(str62List); i++ {
 		ans := models.Str62ToInt64(str62List[i])
