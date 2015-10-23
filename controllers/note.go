@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"html"
+
 	"github.com/astaxie/beego"
 	"note.cstdlib.com/models"
 )
@@ -22,7 +24,7 @@ func (c *NoteController) Show() {
 	if noteEntry, err := models.GetNoteEntryByUrl(url); err != nil {
 		c.Abort("404")
 	} else {
-		c.Data["noteContent"] = noteEntry.GetContent()
+		c.Data["noteContent"] = html.UnescapeString(noteEntry.GetContent())
 		c.Data["noteDate"] = noteEntry.GetDate()
 	}
 	c.TplNames = "note/show.tpl"
@@ -39,7 +41,7 @@ func (c *NoteController) Submit() {
 		c.Ctx.SetCookie("uname", uname)
 	}
 
-	noteContent := c.Input().Get("noteContent")
+	noteContent := html.EscapeString(c.Input().Get("noteContent"))
 	if noteEntry, err := models.NewNoteEntry(uname, noteContent); err != nil {
 		c.Data["json"] = makeAjaxResponse(false, "", "something wrong with server")
 	} else {
