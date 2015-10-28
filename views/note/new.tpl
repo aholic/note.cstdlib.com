@@ -25,6 +25,8 @@
 <input type="button" name="generateUrl" id="generateUrl" value="生成url"/>
 <input type="text" id="urlToShare" name="urlToShare" value="" style="width:300px" readonly>
 <div style="height:120px;"> </div>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256645484'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256645484' type='text/javascript'%3E%3C/script%3E"));</script>
+|
 <a style='width:800px;' href="http://www.miitbeian.gov.cn/">
  京ICP备14040458号
 </a>

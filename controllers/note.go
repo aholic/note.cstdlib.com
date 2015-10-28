@@ -45,6 +45,7 @@ func (c *NoteController) Submit() {
 	if noteEntry, err := models.NewNoteEntry(uname, noteContent); err != nil {
 		c.Data["json"] = makeAjaxResponse(false, "", "something wrong with server")
 	} else {
+		beego.Debug(noteEntry.GetUrl())
 		c.Data["json"] = makeAjaxResponse(true, noteEntry.GetUrl(), "succ")
 	}
 

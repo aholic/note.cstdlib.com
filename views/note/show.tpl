@@ -23,6 +23,8 @@
 以上内容由其他用户创建于{{.noteDate}}。想创建自己的内容并分享？请点击<a href="/">这里</a>
 </p>
 <div style="height:150px;"> </div>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256645484'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256645484' type='text/javascript'%3E%3C/script%3E"));</script>
+|
 <a style='width:800px;' href="http://www.miitbeian.gov.cn/">
  京ICP备14040458号
 </a>
